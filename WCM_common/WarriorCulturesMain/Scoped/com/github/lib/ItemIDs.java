@@ -13,6 +13,8 @@ public class ItemIDs
 	public static final int ITEM_TOOL_STEELSCYTH_ID_DEFAULT = 2847;
 	public static final int ITEM_TOOL_STEELSHOVEL_ID_DEFAULT = 2848;
 	
+	public static final int ITEM_MODEL_SWORD_WEAPONFORGE_ID_DEFAULT = 2849;
+	
 	public static int ITEM_TOOL_STEELPICKAXE_ID;
 	public static int ITEM_TOOL_STEELHATCHET_ID;
 	public static int ITEM_TOOL_STEELSCYTHE_ID;
@@ -23,4 +25,6 @@ public class ItemIDs
 	
 	public static int ITEM_ITEMS_ROCKVALUABLES_ID;
 	public static int ITEM_ITEMS_OREVALUABLES_ID;
+	
+	public static int ITEM_MODEL_SWORD_WEAPONFORGE_ID;
 }

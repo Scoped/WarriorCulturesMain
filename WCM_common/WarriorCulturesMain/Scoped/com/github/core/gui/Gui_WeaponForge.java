@@ -30,16 +30,16 @@ public class Gui_WeaponForge extends GuiContainer
 	
 	public void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
-		String name = this.weaponForge.isInvNameLocalized() ? this.weaponForge.getInvName() : I18n.func_135053_a(this.weaponForge.getInvName());
+		String name = this.weaponForge.isInvNameLocalized() ? this.weaponForge.getInvName() : I18n.getString(this.weaponForge.getInvName());
 		
 		this.fontRenderer.drawString(name, this.xSize / 3 - this.fontRenderer.getStringWidth(name) / 20 + 65, 24, 4210752);
-		this.fontRenderer.drawString(I18n.func_135053_a("container.inventory"), 13, this.ySize - 96, 4210752);
+		this.fontRenderer.drawString(I18n.getString("container.inventory"), 13, this.ySize - 96, 4210752);
 	}
 	
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.func_110434_K().func_110577_a(texture);
+		this.mc.getTextureManager().bindTexture(texture);
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);

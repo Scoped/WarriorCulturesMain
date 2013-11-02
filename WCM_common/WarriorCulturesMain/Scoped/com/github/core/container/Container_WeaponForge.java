@@ -8,7 +8,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotCrafting;
+import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import WarriorCulturesMain.Scoped.com.github.core.handler.WeaponForgeCraftingManager;
@@ -79,7 +79,7 @@ public class Container_WeaponForge extends Container
 		/**
 		 * Finished product slot
 		 */
-		this.addSlotToContainer(new SlotCrafting(inventoryPlayer.player, craftMatrix, craftResult, 8, 163, 96));
+		this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tileEntityFurnace, 8, 163, 96));
 		
 		/**
 		 * Crafting Grid
@@ -88,7 +88,7 @@ public class Container_WeaponForge extends Container
 		{
 			for (j = 0; j < 6; ++j)
 			{
-				this.addSlotToContainer(new Slot(craftMatrix, j + i * 6, 15 + j * 18, 10 + i * 18));
+				this.addSlotToContainer(new Slot(tileEntityFurnace, j + i * 6, 15 + j * 18, 10 + i * 18));
 			}
 		}
 		
@@ -248,7 +248,7 @@ public class Container_WeaponForge extends Container
      */
     public void onCraftMatrixChanged(IInventory par1IInventory)
     {
-       this.craftResult.setInventorySlotContents(8, WeaponForgeCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
+	    this.craftResult.setInventorySlotContents(8, WeaponForgeCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
     }
     
 	public boolean canInteractWith(EntityPlayer entityPlayer)

@@ -44,7 +44,7 @@ public class Gui_PlayerGui extends GuiContainer
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.func_110434_K().func_110577_a(texture);
+		this.mc.getTextureManager().bindTexture(texture);
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
@@ -106,7 +106,7 @@ public class Gui_PlayerGui extends GuiContainer
                 PotionEffect potioneffect = (PotionEffect)iterator.next();
                 Potion potion = Potion.potionTypes[potioneffect.getPotionID()];
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-                this.mc.func_110434_K().func_110577_a(field_110408_a);
+                this.mc.getTextureManager().bindTexture(field_110408_a);
                 this.drawTexturedModalRect(i, j, 0, 166, 140, 32);
 
                 if (potion.hasStatusIcon())
@@ -115,7 +115,7 @@ public class Gui_PlayerGui extends GuiContainer
                     this.drawTexturedModalRect(i + 6, j + 7, 0 + l % 8 * 18, 198 + l / 8 * 18, 18, 18);
                 }
 
-                String s = I18n.func_135053_a(potion.getName());
+                String s = I18n.getString(potion.getName());
 
                 if (potioneffect.getAmplifier() == 1)
                 {

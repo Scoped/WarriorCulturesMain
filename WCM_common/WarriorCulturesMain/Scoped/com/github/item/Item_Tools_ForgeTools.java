@@ -69,7 +69,7 @@ public class Item_Tools_ForgeTools extends Super_Item
 
         for (int i = 0; i < field_94595_b.length; ++i)
         {
-            this.field_94594_d[i] = icon.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(this.func_111208_A() + field_94595_b[i])));
+            this.field_94594_d[i] = icon.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(this.getIconString() + field_94595_b[i])));
         }
     }
     

@@ -1,5 +1,6 @@
 package WarriorCulturesMain.Scoped.com.github.core.slot;
 
+import WarriorCulturesMain.Scoped.com.github.tileEntity.TileEntity_WeaponForge;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -13,6 +14,7 @@ public class Slot_WeaponForgeCrafting extends Slot
 	private final IInventory craftMatrix;
 	private EntityPlayer thePlayer;
 	private int amountCrafted;
+	TileEntity_WeaponForge weaponForge;
 	
 	public Slot_WeaponForgeCrafting(EntityPlayer entityPlayer, IInventory par1IInventory, IInventory craftResult, int par2, int par3, int par4)
 	{
@@ -38,14 +40,20 @@ public class Slot_WeaponForgeCrafting extends Slot
 	
 	protected void onCrafting(ItemStack itemStack, int i)
 	{
-		this.amountCrafted += i;
-		this.onCrafting(itemStack);
+        if (weaponForge.cookTime == 100)
+        {
+			this.amountCrafted += i;
+			this.onCrafting(itemStack);
+        }
 	}
 	
 	protected void onCrafting(ItemStack itemStack)
 	{
-		itemStack.onCrafting(this.thePlayer.worldObj, this.thePlayer, this.amountCrafted);
-		this.amountCrafted = 0;
+        if (weaponForge.cookTime == 100)
+        {
+    		itemStack.onCrafting(this.thePlayer.worldObj, this.thePlayer, this.amountCrafted);
+    		this.amountCrafted = 0;
+        }
 		
 		/**
 		 * maybe add Achievements here
@@ -77,7 +85,7 @@ public class Slot_WeaponForgeCrafting extends Slot
 					
 					if (itemStack2 != null && (!itemStack1.getItem().doesContainerItemLeaveCraftingGrid(itemStack1) || !this.thePlayer.inventory.addItemStackToInventory(itemStack2)))
 					{
-						if (this.craftMatrix.getStackInSlot(i) == null)
+						if (this.craftMatrix.getStackInSlot(i) == null && weaponForge.cookTime == 100)
 						{
 							this.craftMatrix.setInventorySlotContents(i, itemStack2);
 						}

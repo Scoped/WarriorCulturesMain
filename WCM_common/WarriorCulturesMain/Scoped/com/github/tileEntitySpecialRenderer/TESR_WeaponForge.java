@@ -46,7 +46,7 @@ public class TESR_WeaponForge extends TileEntitySpecialRenderer
 		
 		GL11.glRotatef(180, 1, 0, 0);
 		
-		this.func_110628_a(textureLocation);
+		this.bindTexture(textureLocation);
 		
 		this.model.Shape1.render(pixelSize);
 		this.model.Shape2.render(pixelSize);

@@ -413,14 +413,30 @@ public class TileEntity_2_WeaponForge extends TileEntity implements IInventory
 				}
 			}
 			
-			if (this.isSlotOneBurning()/* && this.canSmelt()*/)
+			if (this.isSlotOneBurning() && this.isSlotTwoBurning() && this.isSlotThreeBurning() && this.isSlotFourBurning() && this.isSlotFiveBurning() && this.isSlotSixBurning() && this.canSmelt())
 			{
 				++this.cookTime;
 				
 				if (this.cookTime == this.furnaceSpeed)
 				{
 					this.cookTime = 0;
-					//this.smeltItem();
+					this.smeltItem();
+					flag8 = true;
+				}
+			}
+			else
+			{
+				this.cookTime = 0;
+			}
+			/*
+			if (this.isSlotTwoBurning() && this.canSmelt())
+			{
+				++this.cookTime;
+				
+				if (this.cookTime == this.furnaceSpeed)
+				{
+					this.cookTime = 0;
+					this.smeltItem();
 					flag8 = true;
 				}
 			}
@@ -429,14 +445,14 @@ public class TileEntity_2_WeaponForge extends TileEntity implements IInventory
 				this.cookTime = 0;
 			}
 			
-			if (this.isSlotTwoBurning() /*&& this.canSmelt()*/)
+			if (this.isSlotThreeBurning() && this.canSmelt())
 			{
 				++this.cookTime;
 				
 				if (this.cookTime == this.furnaceSpeed)
 				{
 					this.cookTime = 0;
-					//this.smeltItem();
+					this.smeltItem();
 					flag8 = true;
 				}
 			}
@@ -445,14 +461,14 @@ public class TileEntity_2_WeaponForge extends TileEntity implements IInventory
 				this.cookTime = 0;
 			}
 			
-			if (this.isSlotThreeBurning() /*&& this.canSmelt()*/)
+			if (this.isSlotFourBurning() && this.canSmelt())
 			{
 				++this.cookTime;
 				
 				if (this.cookTime == this.furnaceSpeed)
 				{
 					this.cookTime = 0;
-					//this.smeltItem();
+					this.smeltItem();
 					flag8 = true;
 				}
 			}
@@ -461,14 +477,14 @@ public class TileEntity_2_WeaponForge extends TileEntity implements IInventory
 				this.cookTime = 0;
 			}
 			
-			if (this.isSlotFourBurning() /*&& this.canSmelt()*/)
+			if (this.isSlotFiveBurning() && this.canSmelt())
 			{
 				++this.cookTime;
 				
 				if (this.cookTime == this.furnaceSpeed)
 				{
 					this.cookTime = 0;
-					//this.smeltItem();
+					this.smeltItem();
 					flag8 = true;
 				}
 			}
@@ -477,37 +493,21 @@ public class TileEntity_2_WeaponForge extends TileEntity implements IInventory
 				this.cookTime = 0;
 			}
 			
-			if (this.isSlotFiveBurning() /*&& this.canSmelt()*/)
+			if (this.isSlotSixBurning() && this.canSmelt())
 			{
 				++this.cookTime;
 				
 				if (this.cookTime == this.furnaceSpeed)
 				{
 					this.cookTime = 0;
-					//this.smeltItem();
+					this.smeltItem();
 					flag8 = true;
 				}
 			}
 			else
 			{
 				this.cookTime = 0;
-			}
-			
-			if (this.isSlotSixBurning() /*&& this.canSmelt()*/)
-			{
-				++this.cookTime;
-				
-				if (this.cookTime == this.furnaceSpeed)
-				{
-					this.cookTime = 0;
-					//this.smeltItem();
-					flag8 = true;
-				}
-			}
-			else
-			{
-				this.cookTime = 0;
-			}
+			}*/
 			
 			if (flag1 != this.burnTime1 > 0)
 			{
@@ -666,7 +666,7 @@ public class TileEntity_2_WeaponForge extends TileEntity implements IInventory
         {
         	slots[8].stackSize++;
         }
-        for (int i = 0; i < 44; i++)
+        for (int i = 0; i < 36; i++)
         {
         	if (slots[i].stackSize <= 0)
         	{
@@ -788,7 +788,7 @@ public class TileEntity_2_WeaponForge extends TileEntity implements IInventory
 				{
 					return 300;
 				}
-				if (block == Block.field_111034_cE)
+				if (block == Block.coalBlock)
 				{
 					return 16000;
 				}

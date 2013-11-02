@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import cpw.mods.fml.common.ICraftingHandler;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -19,14 +17,13 @@ import WarriorCulturesMain.Scoped.com.github.core.handler.crafting.WeaponForgeRe
 import WarriorCulturesMain.Scoped.com.github.core.handler.crafting.WeaponForgeShapedRecipes;
 import WarriorCulturesMain.Scoped.com.github.core.handler.crafting.WeaponForgeShapelessRecipes;
 import WarriorCulturesMain.Scoped.com.github.item.ModItems;
-import WarriorCulturesMain.Scoped.com.github.lib.BlockIDs;
-import WarriorCulturesMain.Scoped.com.github.tileEntity.TileEntity_WeaponForge;
+import cpw.mods.fml.common.ICraftingHandler;
 
 public class WeaponForgeCraftingManager implements ICraftingHandler
 {
 	public static final int WILDCARD_VALUE = Short.MAX_VALUE;
 	private static final WeaponForgeCraftingManager instance = new WeaponForgeCraftingManager();
-	private List recipes = new ArrayList();
+	public List recipes = new ArrayList();
 	
 	public static final WeaponForgeCraftingManager getInstance()
 	{
@@ -149,12 +146,12 @@ public class WeaponForgeCraftingManager implements ICraftingHandler
             	itemStack2[i1] = null;
             }
         }
-
+        
         WeaponForgeShapedRecipes weaponForgeShapedRecipes = new WeaponForgeShapedRecipes(j, k, itemStack2, par1ItemStack);
         this.recipes.add(weaponForgeShapedRecipes);
         return weaponForgeShapedRecipes;
     }
-
+    
     public void addShapelessRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
     {
         ArrayList arraylist = new ArrayList();

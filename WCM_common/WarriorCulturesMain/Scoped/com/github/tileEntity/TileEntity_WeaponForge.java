@@ -11,21 +11,14 @@ import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import WarriorCulturesMain.Scoped.com.github.block.Block_WeaponForge;
-import WarriorCulturesMain.Scoped.com.github.core.handler.crafting.WeaponForgeShapedRecipes;
-import WarriorCulturesMain.Scoped.com.github.core.proxy.CommonProxy;
-import WarriorCulturesMain.Scoped.com.github.lib.Resources;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TileEntity_WeaponForge extends TileEntity implements ISidedInventory
-{
-	WeaponForgeShapedRecipes weaponForgeRecipes;
-	
+{	
 	private String localizedName;
 	
 	private static final int[] slots_top = new int[]{};
@@ -465,7 +458,7 @@ public class TileEntity_WeaponForge extends TileEntity implements ISidedInventor
 				}
 			}
 			
-			if (this.isSlotOneBurning() && this.isSlotTwoBurning() && this.isSlotThreeBurning() && this.isSlotFourBurning() && this.isSlotFiveBurning() && this.isSlotSixBurning())
+			if (this.isSlotOneBurning() && this.isSlotTwoBurning() && this.isSlotThreeBurning() && this.isSlotFourBurning() && this.isSlotFiveBurning() && this.isSlotSixBurning()/* && this.canCraft()*/)
 			{
 				if (this.cookTime < 100)
 				{
@@ -548,33 +541,9 @@ public class TileEntity_WeaponForge extends TileEntity implements ISidedInventor
         }
     }
 	
-	/*private boolean canSmelt()
+	/*private boolean canCraft()
 	{
-		if (this.slots[0] == null)
-		{
-			return false;
-		}
-		else
-		{
-			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
-			
-			if (itemstack == null)
-			{
-				return false;
-			}
-			if (this.slots[2] == null)
-			{
-				return true;
-			}
-			if (!this.slots[2].isItemEqual(itemstack))
-			{
-				return false;
-			}
-			
-			int result = this.slots[2].stackSize + itemstack.stackSize;
-			
-			return (result <= getInventoryStackLimit() && result <= itemstack.getMaxStackSize());
-		}
+		
 	}*/
 	/*
 	public void smeltItem()
@@ -624,7 +593,7 @@ public class TileEntity_WeaponForge extends TileEntity implements ISidedInventor
 				{
 					return 300;
 				}
-				if (block == Block.field_111034_cE)
+				if (block == Block.coalBlock)
 				{
 					return 16000;
 				}

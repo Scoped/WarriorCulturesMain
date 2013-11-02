@@ -33,6 +33,14 @@ public class Strings
 	public static final String ITEM_ITEMS_OREVALUABLES_NAME = "OreValuables";
 	public static final String ITEM_ITEMS_ROCKVALUABLES_NAME = "RockValuables";
 
+	/**
+	 * TileEntity
+	 */
 	public static final String TILEENTITY_WEAPONFORGE_NAME = "WeaponForge";
 	public static final String TILEENTITY_WEAPONFORGE_NAME_2 = "WeaponForge2";
+	
+	/**
+	 * Item Models
+	 */
+	public static final String ITEM_MODEL_WEAPONFORGE_NAME = "WeaponForgeItem";
 }
